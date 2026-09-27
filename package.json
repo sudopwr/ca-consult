@@ -1,0 +1,30 @@
+{
+  "name": "ca-consult",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "build": "pnpm -r --filter ./packages/** --filter ./apps/** build",
+    "dev": "pnpm --parallel --filter @ca/api --filter @ca/web dev",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:unit": "pnpm --filter @ca/api test && pnpm --filter @ca/web test",
+    "test:e2e": "pnpm --filter @ca/e2e test",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm build",
+    "test:schema": "./scripts/verify-schema.sh && ./scripts/verify-concurrency.sh",
+    "db:reset": "supabase db reset"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-boundaries": "^5.0.1",
+    "globals": "^16.6.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}

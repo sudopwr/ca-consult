@@ -1,0 +1,23 @@
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# Supabase
+supabase/.branches/
+supabase/.temp/
+
+.DS_Store
+*.log
